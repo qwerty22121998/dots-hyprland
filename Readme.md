@@ -21,13 +21,12 @@
 
 
 # Included scripts
-- Reload appearance: CTRL + ALT + R 
 - Show keybindings: SUPER + H
-- Change hyprland animation: SUPER + SHIFT + A
-- Change waybar theme: SUPER + SHIFT + B
-- Change wallpaper: SUPER + SHIFT + W
-- Screenshot: SUPER + SHIFT + S
-
+- Reload appearance
+- Change hyprland animation
+- Change waybar theme
+- Change wallpaper
+- Screenshot
 
 # References
 - Thanks JaKooLit for the inspiration.
