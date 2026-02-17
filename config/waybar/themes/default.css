@@ -85,7 +85,9 @@ label:hover {
 #custom-swaync,
 #custom-nvidia,
 #workspaces label,
-#tray {
+#tray, 
+#custom-hyprland-keybinds,
+#cava {
     color: @foreground;
 }
 

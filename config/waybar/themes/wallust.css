@@ -83,16 +83,17 @@ label:hover {
 #wireplumber,
 #temperature,
 #custom-swaync,
-#custom-nvidia {
-    margin-left: 2px;
-    margin-right: 2px;
+#custom-nvidia,
+#custom-hyprland-keybinds,
+#tray,
+#custom-sep,
+#workspaces label,
+#cava {
     color: @foreground;
 }
 
-#custom-sep,
-#workspaces label,
-#tray {
-    color: @foreground;
+#custom-sep {
+    padding: 0px 2px;
 }
 
 .modules-left,
