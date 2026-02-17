@@ -1,0 +1,54 @@
+window {
+    font-size: 24pt;
+    font-family: Pixelon;
+    color: rgb(255, 255, 255);
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+button {
+    background-color: rgba(0, 0, 0, 1);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20%;
+    transition: all 100ms ease;
+    border: none;
+    border-radius: 0;
+    outline-style: none;
+    opacity: 0.4;
+}
+
+button:focus {
+    opacity: 0.8;
+    background-size: 40%;
+    outline-style: none;
+}
+
+button:hover {
+    opacity: 1;
+    background-size: 50%;
+    outline-style: none;
+}
+
+#lock {
+    background-image: image(url("./icons/lock.svg"));
+}
+
+#logout {
+    background-image: image(url("./icons/logout.svg"));
+}
+
+#suspend {
+    background-image: image(url("./icons/sleep.svg"));
+}
+
+#shutdown {
+    background-image: image(url("./icons/power.svg"));
+}
+
+#reboot {
+    background-image: image(url("./icons/restart.svg"));
+}
+
+#hibernate {
+    background-image: image(url("./icons/hibernate.svg"));
+}

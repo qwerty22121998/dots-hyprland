@@ -1,0 +1,148 @@
+* {
+    background: rgba(0,0,0,0.3);
+    foreground: rgb(255, 255, 255);
+    foreground-transparent: rgba(255, 255, 255, 0.5);
+    selected-bg: rgb(255,255,255);
+    selected-fg: rgb(0,0,0);
+
+    background-color: transparent;
+    color: @foreground;
+    spacing: 0;
+
+}
+
+// CUSTOM 
+expander {
+    expand: true;
+}
+
+window {
+    location: center;
+    anchor: north;
+    transparency: "real";
+    width: 30%;
+    background-color: @background;
+}
+
+
+    overlay {
+
+    }
+
+    mainbox {
+        children: [  "inputbar",  "listview" ];
+    }
+
+
+    inputbar {
+        padding: 0px 0px 10% 0px;
+        background-image: url("~/.config/rofi/_current_wallpaper", width);
+        orientation: vertical;
+        spacing: 5%;
+        children: ["mode-switcher", "box-input-message"];
+    }
+
+        box-input-message {
+            orientation: vertical;
+            children: ["message", "box-input"];
+        }
+
+        box-input {
+            orientation: horizontal;
+            children: ["expander", "entry", "expander"];
+        }
+
+        case-indicator {
+        }
+
+        prompt {
+
+        }
+
+        entry {
+            background-color: @background;
+            placeholder: "Search...";
+            text-color: @foreground;
+            placeholder-color: @foreground-transparent;
+            padding: 15px;
+        }
+
+        num-rows {
+
+        }
+
+        num-filtered-rows {
+
+        }
+
+        textbox-current-entry {
+
+        }
+
+        icon-current-entry {
+
+        }
+
+    listview {
+        cycle: true;
+        lines: 10;
+        children: ["element"];
+    } 
+        scrollbar {
+
+        }
+        element {
+            padding: 10px;
+            spacing: 20px;
+            children: ["element-icon", "element-text"];
+        }
+
+        element.alternate {
+            background-color: @background;
+        }
+
+        element.selected {
+            background-color: @selected-bg;
+            text-color: @selected-fg;
+            // border: 2px dash 0px dash;
+            // border-color: @selected-bg;
+            // border-radius: 25px;
+        }        
+            element-icon {
+                size: 1.5em;
+                text-color: inherit;
+                background-color: transparent;
+            }
+            element-index {
+                text-color: inherit;
+                background-color: transparent;
+            }
+            element-text {
+                text-color: inherit;
+                background-color: transparent;
+                vertical-align: 0.5;
+            }
+
+    mode-switcher {
+
+    }
+        button {
+            background-color: @background;
+            padding: 15px 0px;
+        }
+
+        button.selected {
+            background-color: @foreground;
+            text-color: @selected-fg;
+        }
+
+    message {
+        padding: 10px 0px;
+        children: ["textbox"];
+    }
+        textbox {
+            vertical-align: 0.5;
+            horizontal-align: 0.5;
+            placeholder: "Type to search...";
+        }
+    

@@ -1,0 +1,192 @@
+@define-color background rgba(0, 0, 0, 0.5);
+@define-color foreground #ffa000;
+@define-color active @foreground;
+@define-color active-fg #ffffff;
+@define-color normal @foreground;
+@define-color warning rgb(255, 102, 0);
+@define-color critical rgb(255, 72, 0);
+@define-color critical-fg rgb(0, 0, 0);
+
+* {
+    font-family: "JetBrains Mono Nerd Font";
+    font-size: 100%;
+    color: @foreground;
+    min-height: 20px;
+}
+
+window.HDMI-A-1 {
+    font-size: 80%;
+}
+
+window#waybar {
+    background: transparent;
+    transition: 300ms ease-in-out;
+}
+
+button {
+    border: none;
+    border-radius: 0;
+}
+
+button:hover {
+    box-shadow: 0px 2px @foreground inset;
+    opacity: 0.8;
+}
+
+label:hover {
+    text-shadow: 0 0 5px;
+}
+
+#workspaces button {
+    padding: 0 0.5em 0 0.5em;
+    margin: 0px;
+}
+
+#workspaces button:hover {
+    text-shadow: 0 0 5px;
+    background: @foreground;
+    color: @active-fg;
+}
+
+#workspaces button:hover label {
+    color: @active-fg;
+}
+
+#workspaces button.focused,
+#workspaces button.active {
+    /* box-shadow: 0px 1px @active inset; */
+    /* background: @foreground; */
+    background: @active;
+}
+
+#workspaces button.focused label,
+#workspaces button.active label {
+    color: @active-fg;
+}
+/* MODULES */
+#blacklight,
+#backlight-slider,
+#battery,
+#bluetooth,
+#cpu,
+#clock,
+#disk,
+#idle_inhibitor,
+#keyboard-state,
+#language,
+#load,
+#mpris,
+#memory,
+#network,
+#power-profiles-daemon,
+#privacy,
+#pulseaudio,
+#wlr-taskbar,
+#tray,
+#user,
+#wireplumber,
+#temperature,
+#custom-swaync,
+#custom-nvidia {
+    margin-left: 2px;
+    margin-right: 2px;
+    color: inherit;
+}
+
+#custom-sep {
+    color: inherit;
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+    background: @background;
+    padding: 5px;
+    border: 1px dashed @foreground;
+    margin-top: -1px;
+}
+
+.modules-left {
+    margin-left: -1px;
+    border-radius: 0 0px 15px 0;
+}
+
+.modules-center {
+    border-radius: 0px 0px 15px 15px;
+}
+
+.modules-right {
+    margin-right: -1px;
+    border-radius: 0px 0 0 15px;
+}
+
+/* Block */
+@define-color cpu-fg rgb(64, 130, 253);
+@define-color temp-fg rgb(69, 232, 253);
+@define-color nvidia-fg rgb(61, 167, 0);
+@define-color memory-fg rgb(136, 62, 255);
+@define-color disk-fg rgb(255, 0, 212);
+
+#idle_inhibitor {
+    padding: 0 5px 0 5px;
+}
+
+#power-profiles-daemon {
+    padding: 0 5px 0 5px;
+}
+
+#idle_inhibitor.activated {
+    text-shadow: 0 0 5px @critical;
+    color: @critical;
+}
+#user {
+    text-shadow: 0 0 3px;
+}
+
+#disk.normal {
+    color: @disk-fg;
+}
+
+#disk.warning {
+    color: @warning;
+}
+
+#disk.critical {
+    color: @critical;
+}
+
+#cpu {
+    color: @cpu-fg;
+    padding: 0 5px 0 5px;
+    border-radius: 5px;
+}
+
+#temperature {
+    color: @temp-fg;
+    padding: 0 5px 0 5px;
+    border-radius: 5px;
+}
+
+#temperature.critical {
+    color: @critical;
+    font-weight: bold;
+}
+
+
+#custom-nvidia {
+    color: @nvidia-fg;
+    padding: 0 5px 0 5px;
+    border-radius: 5px;
+}
+
+#memory {
+    color: @memory-fg;
+    padding: 0 5px 0 5px;
+    border-radius: 5px;
+}
+
+#disk {
+    color: @disk-fg;
+    padding: 0 5px 0 5px;
+    border-radius: 5px;
+}

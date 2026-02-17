@@ -1,0 +1,27 @@
+configuration {
+    font: "JetBrainsMono Nerd Font SemiBold 15";
+    show-icons: true;
+    display-drun:               "  app";
+    display-run:                "  run";
+    display-filebrowser:        "  file";
+    display-window:             "  window";
+    drun-display-format:        "{name} <small>[[{categories}]]</small>";
+    hover-select: true;
+    me-select-entry: "";
+    me-accept-entry: "MousePrimary";
+    // modi: "drun,run,filebrowser";
+        // window-format:              "{w} · {c} · {t}";
+    timeout {
+        action: "kb-cancel";
+        delay:  0;
+    }
+    filebrowser {
+        directories-first: true;
+        sorting-method:    "name";
+    }
+    
+}
+
+
+
+@theme "/home/vuhk/.config/rofi/themes/default.rasi"

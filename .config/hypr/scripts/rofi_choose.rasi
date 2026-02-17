@@ -1,0 +1,20 @@
+@import "~/.config/rofi/config.rasi"
+
+window {
+  width: 75%;
+}
+
+entry {
+}
+
+listview {
+    columns: 2;
+    lines: 10;
+    fixed-height: false;
+    cycle: true;
+}
+
+
+element-icon {
+    size: 0;
+}
