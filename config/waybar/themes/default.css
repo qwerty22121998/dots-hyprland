@@ -10,8 +10,6 @@
 * {
     font-family: "JetBrains Mono Nerd Font";
     font-size: 100%;
-    color: @foreground;
-    min-height: 20px;
 }
 
 window.HDMI-A-1 {
@@ -54,8 +52,6 @@ label:hover {
 
 #workspaces button.focused,
 #workspaces button.active {
-    /* box-shadow: 0px 1px @active inset; */
-    /* background: @foreground; */
     background: @active;
 }
 
@@ -87,14 +83,15 @@ label:hover {
 #wireplumber,
 #temperature,
 #custom-swaync,
-#custom-nvidia {
-    margin-left: 2px;
-    margin-right: 2px;
-    color: inherit;
+#custom-nvidia,
+#workspaces label,
+#tray {
+    color: @foreground;
 }
 
 #custom-sep {
-    color: inherit;
+    padding: 0 2px;
+    color: @foreground;
 }
 
 .modules-left,
@@ -104,6 +101,7 @@ label:hover {
     padding: 5px;
     border: 1px dashed @foreground;
     margin-top: -1px;
+    color: @foreground;
 }
 
 .modules-left {

@@ -9,8 +9,6 @@
 * {
     font-family: "JetBrains Mono Nerd Font";
     font-size: 100%;
-    color: @foreground;
-    min-height: 20px;
 }
 
 window.HDMI-A-1 {
@@ -88,11 +86,13 @@ label:hover {
 #custom-nvidia {
     margin-left: 2px;
     margin-right: 2px;
-    color: inherit;
+    color: @foreground;
 }
 
-#custom-sep {
-    color: inherit;
+#custom-sep,
+#workspaces label,
+#tray {
+    color: @foreground;
 }
 
 .modules-left,
