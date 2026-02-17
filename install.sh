@@ -1,7 +1,7 @@
 #!/bin/bash
 
 CONFIG_DIR="$HOME/.config"
-DOT_CONFIG_DIR="$PWD/.config"
+DOT_CONFIG_DIR="$PWD/config"
 
 
 rm_config_if_exists() {

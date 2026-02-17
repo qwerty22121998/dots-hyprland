@@ -4,7 +4,7 @@ CONFIG_DIR="$HOME/.config/hypr/configs/user"
 ANIMATION_DIR="$HOME/.config/hypr/animations"
 ROFI_CONFIG=$HOME/.config/hypr/scripts/rofi_choose.rasi
 
-animations=$(ls "$ANIMATION_DIR/*.conf" | sed 's/.*\///' | sort -V)
+animations=$(ls "$ANIMATION_DIR"/*.conf | sed 's/.*\///' | sort -V)
 
 anim_file=$(echo "$animations" |
   rofi -dmenu -i -config "$ROFI_CONFIG" -mesg "󰗘 Select animation" -p "Animation")
