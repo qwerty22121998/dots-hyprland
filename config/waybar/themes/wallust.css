@@ -1,21 +1,190 @@
- @define-color foreground #AFFCFE;
- @define-color background #161616;
- @define-color background-alt rgba(22,22,22,-1.25);
- @define-color cursor #9DBFFB;
- 
- @define-color color0 #3D3D3D;
- @define-color color1 #7D58BA;
- @define-color color2 #6961BA;
- @define-color color3 #1976A2;
- @define-color color4 #067EAC;
- @define-color color5 #0888B1;
- @define-color color6 #14B8BE;
- @define-color color7 #85F2F6;
- @define-color color8 #5DA9AC;
- @define-color color9 #A675F9;
- @define-color color10 #8C81F7;
- @define-color color11 #219DD8;
- @define-color color12 #09A7E6;
- @define-color color13 #0BB6EC;
- @define-color color14 #1BF6FD; 
- @define-color color15 #85F2F6;
+@import "./wallust.css";
+
+@define-color active @color7;
+@define-color active-fg @color0;
+@define-color normal @foreground;
+@define-color warning rgb(255, 102, 0);
+@define-color critical rgb(255, 72, 0);
+@define-color critical-fg rgb(0, 0, 0);
+* {
+    font-family: "JetBrains Mono Nerd Font";
+    font-size: 100%;
+    color: @foreground;
+    min-height: 20px;
+}
+
+window.HDMI-A-1 {
+    font-size: 80%;
+}
+
+window#waybar {
+    background: transparent;
+    transition: 300ms ease-in-out;
+}
+
+button {
+    border: none;
+    border-radius: 0;
+}
+
+button:hover {
+    box-shadow: 0px 2px @foreground inset;
+    opacity: 0.8;
+}
+
+label:hover {
+    text-shadow: 0 0 5px;
+}
+
+#workspaces button {
+    padding: 0 0.5em 0 0.5em;
+    margin: 0px;
+}
+
+#workspaces button:hover {
+    text-shadow: 0 0 5px;
+    background: @foreground;
+}
+
+#workspaces button:hover label {
+    color: @active-fg;
+}
+
+#workspaces button.focused,
+#workspaces button.active {
+    /* box-shadow: 0px 1px @active inset; */
+    /* background: @foreground; */
+    background: @active;
+}
+
+#workspaces button.focused label,
+#workspaces button.active label {
+    color: @active-fg;
+}
+/* MODULES */
+#blacklight,
+#backlight-slider,
+#battery,
+#bluetooth,
+#cpu,
+#clock,
+#disk,
+#idle_inhibitor,
+#keyboard-state,
+#language,
+#load,
+#mpris,
+#memory,
+#network,
+#power-profiles-daemon,
+#privacy,
+#pulseaudio,
+#wlr-taskbar,
+#tray,
+#user,
+#wireplumber,
+#temperature,
+#custom-swaync,
+#custom-nvidia {
+    margin-left: 2px;
+    margin-right: 2px;
+    color: inherit;
+}
+
+#custom-sep {
+    color: inherit;
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+    background: @background;
+    padding: 5px;
+    border: 1px dashed @foreground;
+    margin-top: -1px;
+}
+
+.modules-left {
+    margin-left: -1px;
+    border-radius: 0 0px 15px 0;
+}
+
+.modules-center {
+    border-radius: 0px 0px 15px 15px;
+}
+
+.modules-right {
+    margin-right: -1px;
+    border-radius: 0px 0 0 15px;
+}
+
+/* Block */
+@define-color cpu-fg @color11;
+@define-color temp-fg @color12;
+@define-color nvidia-fg @color13;
+@define-color memory-fg @color14;
+@define-color disk-fg @color15;
+
+#idle_inhibitor {
+    padding: 0 5px 0 5px;
+}
+
+#power-profiles-daemon {
+    padding: 0 5px 0 5px;
+}
+
+#idle_inhibitor.activated {
+    text-shadow: 0 0 5px @critical;
+    color: @critical;
+}
+#user {
+    text-shadow: 0 0 3px;
+}
+
+#disk.normal {
+    color: @disk-fg;
+}
+
+#disk.warning {
+    color: @warning;
+}
+
+#disk.critical {
+    color: @critical;
+}
+
+#cpu {
+    color: @cpu-fg;
+    padding: 0 5px 0 5px;
+    border-radius: 5px;
+}
+
+#temperature {
+    color: @temp-fg;
+    padding: 0 5px 0 5px;
+    border-radius: 5px;
+}
+
+#temperature.critical {
+    color: @critical;
+    font-weight: bold;
+}
+
+
+#custom-nvidia {
+    color: @nvidia-fg;
+    padding: 0 5px 0 5px;
+    border-radius: 5px;
+}
+
+#memory {
+    color: @memory-fg;
+    padding: 0 5px 0 5px;
+    border-radius: 5px;
+}
+
+#disk {
+    color: @disk-fg;
+    padding: 0 5px 0 5px;
+    border-radius: 5px;
+}

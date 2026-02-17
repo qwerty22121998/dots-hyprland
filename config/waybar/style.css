@@ -1,12 +1,11 @@
-@define-color background rgba(0, 0, 0, 0.5);
-@define-color foreground #ffa000;
-@define-color active @foreground;
-@define-color active-fg #ffffff;
+@import "./wallust.css";
+
+@define-color active @color7;
+@define-color active-fg @color0;
 @define-color normal @foreground;
 @define-color warning rgb(255, 102, 0);
 @define-color critical rgb(255, 72, 0);
 @define-color critical-fg rgb(0, 0, 0);
-
 * {
     font-family: "JetBrains Mono Nerd Font";
     font-size: 100%;
@@ -45,7 +44,6 @@ label:hover {
 #workspaces button:hover {
     text-shadow: 0 0 5px;
     background: @foreground;
-    color: @active-fg;
 }
 
 #workspaces button:hover label {
@@ -121,11 +119,11 @@ label:hover {
 }
 
 /* Block */
-@define-color cpu-fg rgb(64, 130, 253);
-@define-color temp-fg rgb(69, 232, 253);
-@define-color nvidia-fg rgb(61, 167, 0);
-@define-color memory-fg rgb(136, 62, 255);
-@define-color disk-fg rgb(255, 0, 212);
+@define-color cpu-fg @color11;
+@define-color temp-fg @color12;
+@define-color nvidia-fg @color13;
+@define-color memory-fg @color14;
+@define-color disk-fg @color15;
 
 #idle_inhibitor {
     padding: 0 5px 0 5px;
