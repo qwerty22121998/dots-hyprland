@@ -1,32 +1,39 @@
+@define-color background rgba(0, 0, 0, 0.3);
+@define-color background-focus rgba(0, 0, 0, 0.7);
+@define-color background-hover rgba(0, 0, 0, 1);
+@define-color foreground #fff;
+
+* {
+    box-shadow: none;
+    outline-style: none;
+}
+
 window {
     font-size: 24pt;
     font-family: Pixelon;
-    color: rgb(255, 255, 255);
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: @background;
 }
 
 button {
-    background-color: rgba(0, 0, 0, 1);
+    background-color: @background;
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 20%;
+    background-size: 30%;
     transition: all 100ms ease;
     border: none;
     border-radius: 0;
-    outline-style: none;
-    opacity: 0.4;
+    color: @foreground;
+    text-shadow: none;
 }
 
 button:focus {
-    opacity: 0.8;
-    background-size: 40%;
-    outline-style: none;
+    background-color: @background-focus;
+    background-size: 50%;
 }
 
 button:hover {
-    opacity: 1;
-    background-size: 50%;
-    outline-style: none;
+    background-color: @background-hover;
+    background-size: 70%;
 }
 
 #lock {
