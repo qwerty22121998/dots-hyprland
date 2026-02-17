@@ -2,7 +2,7 @@
 
 # Prerequisites
 - hyprland: Wayland compositor
-- neofetch: System information display
+- fastfetch: System information display
 - swaync: Notification daemon
 - rofi: App launcher, dmenu
 - waybar: Status bar
