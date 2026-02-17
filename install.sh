@@ -19,14 +19,12 @@ install_config() {
     ln -snf "$DOT_CONFIG_DIR/$1" "$target"
 }
 
-install_config "hypr"
-install_config "kitty"
-install_config "rofi"
-install_config "swaync"
-install_config "wallust"
-install_config "waybar"
-install_config "wlogout"
-install_config "yazi"
+configs=$(ls $DOT_CONFIG_DIR)
 
+echo "Installing configurations..."
+
+for config in $configs; do
+    install_config "$config"
+done
 
 echo "Installation complete. Please restart your session to apply changes."
