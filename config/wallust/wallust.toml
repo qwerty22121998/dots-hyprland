@@ -25,7 +25,7 @@ color_space = "labmixed"
 # softlight - softlight16 - softlightcomp - softlightcomp16
 # saliencedark - saliencedarkbalanced - saliencedarkdistributed - saliencedarklow (each has the 16 variations)
 # salienceligh - saliencelightbalanced - saliencelightdistributed - saliencelightlow (each has the 16 variations)
-palette = "dark16"
+palette = "softdark16"
 
 # Ensures a "readable contrast" (OPTIONAL, disabled by default)
 # Should only be enabled when you notice an unreadable contrast frequently happening
@@ -45,7 +45,7 @@ palette = "dark16"
 
 [templates]
 waybar = { template = 'waybar.css', target = '~/.config/waybar/wallust.css' }
-
+hyprland = { template = 'hyprland.conf', target = '~/.config/hypr/configs/default/wallust.conf' }
 # NOTE: prefer '' over "" for paths, avoids escaping.
 # template: A RELATIVE path that points to `~/.config/wallust/template` (depends on platform)
 # target: ABSOLUTE path in which to place a file with generated templated values.

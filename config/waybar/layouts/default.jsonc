@@ -34,8 +34,6 @@
     "power-profiles-daemon",
   ],
   "modules-center": [
-    "custom/swaync",
-    "custom/sep#dotline",
     "clock",
     "custom/sep#dotline",
     "hyprland/workspaces",

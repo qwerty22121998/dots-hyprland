@@ -3,7 +3,7 @@
 # Prerequisites
 - hyprland: Wayland compositor
 - fastfetch: System information display
-- swaync: Notification daemon
+- mako: Notification daemon
 - rofi: App launcher, dmenu
 - waybar: Status bar
 - awww: Wallpaper daemon

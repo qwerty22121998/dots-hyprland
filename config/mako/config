@@ -1,0 +1,27 @@
+max-history=10
+sort=-time
+font=JetBrainsMono Nerd Font 14
+background-color=#000000b3
+text-color=#ffffff
+width=400
+height=100
+padding=5,10
+border-size=0
+progress-color=#fcba03ff
+max-icon-size=32
+icons=1
+icon-location=left
+#format=<b>%s</b>\n%b Default when grouped: (%g) <b>%s</b>\n%b
+format=%s\n%b
+text-alignment=center
+default-timeout=5000
+anchor=top-center
+
+[urgency=normal]
+border-color=#00b344
+border-size=2
+
+[urgency=critical]
+border-color=#ff0000
+border-size=2
+default-timeout=0
