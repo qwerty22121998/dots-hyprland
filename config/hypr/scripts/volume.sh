@@ -8,7 +8,7 @@ notify() {
   if is_mute; then
     notify-send -u low -h string:x-canonical-private-synchronous:volume "󰖁 Volume" "Muted"
   else
-    notify-send -u low -h string:x-canonical-private-synchronous:volume "󰕾 Volume" "$volume%" && "$SCRIPT_DIR/sound.sh" message
+    notify-send -u low -h string:x-canonical-private-synchronous:volume -h "int:value:$volume" "󰕾 Volume" "$volume%" && "$SCRIPT_DIR/sound.sh" message
   fi
 }
 
