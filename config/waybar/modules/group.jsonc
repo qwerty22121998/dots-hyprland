@@ -12,8 +12,6 @@
     "group/sound": {
         "orientation": "inherit",
         "modules": [
-            "cava",
-            "custom/sep#space",
             "pulseaudio",
             "custom/sep#dotline",
             "pulseaudio#microphone",
