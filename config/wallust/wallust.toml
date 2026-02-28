@@ -11,7 +11,7 @@
 
 # How the image is parse, in order to get the colors:
 # full - resized - wal - thumb -  fastresize - kmeans
-backend = "fastresize"
+backend = "kmeans"
 
 # What color space to use to produce and select the most prominent colors:
 # lab - labmixed - lch - lchmixed - salience
@@ -25,7 +25,7 @@ color_space = "labmixed"
 # softlight - softlight16 - softlightcomp - softlightcomp16
 # saliencedark - saliencedarkbalanced - saliencedarkdistributed - saliencedarklow (each has the 16 variations)
 # salienceligh - saliencelightbalanced - saliencelightdistributed - saliencelightlow (each has the 16 variations)
-palette = "softdark16"
+palette = "dark16"
 
 # Ensures a "readable contrast" (OPTIONAL, disabled by default)
 # Should only be enabled when you notice an unreadable contrast frequently happening
@@ -42,6 +42,8 @@ palette = "softdark16"
 
 # Disables hooks completly
 #no_hooks = true
+
+threshold = 11
 
 [templates]
 waybar = { template = 'waybar.css', target = '~/.config/waybar/wallust.css' }

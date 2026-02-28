@@ -18,6 +18,7 @@
 - yazi: TUI file manager
 - nwg-look: Display/Workspace manager
 - btop: TUI system monitor
+- hypremoji: Emoji picker
 
 
 # Included scripts

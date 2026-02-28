@@ -10,3 +10,5 @@ echo "Current wallpaper: $current_wallpaper"
 ln -sf "$current_wallpaper" "$PICTURE_DIR/_current_wallpaper" 2>/dev/null
 #link rofi
 ln -sf "$current_wallpaper" "$HOME/.config/rofi/_current_wallpaper" 2>/dev/null
+
+wallust run "$current_wallpaper" 2>/dev/null
