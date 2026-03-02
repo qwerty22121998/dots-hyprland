@@ -63,7 +63,7 @@ label:hover {
     padding: 5px 8px;
     background-color: alpha(@background, 0.65);
     box-shadow: 0 -2px alpha(@background, 0.5) inset;
-    border-radius: 12px;
+    border-radius: 8px;
 }
 
 
