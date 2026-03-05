@@ -7,7 +7,8 @@
 @define-color critical-fg rgb(0, 0, 0);
 
 * {
-    font-family: "CommitMono Nerd Font";
+    /*font-family: "CommitMono Nerd Font";*/
+    font-family: "JetBrains Mono Nerd Font";
     font-weight: bold;
     font-size: 14px;
 }

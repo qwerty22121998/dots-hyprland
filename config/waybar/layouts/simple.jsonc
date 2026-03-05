@@ -29,6 +29,7 @@
         "group/system",
     ],
     "modules-center": [
+        "idle_inhibitor",
         "hyprland/workspaces",
         "cava",
     ],

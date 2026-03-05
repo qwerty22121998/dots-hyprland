@@ -1,5 +1,3 @@
-
-
 notify-send -u low low body
 notify-send -u normal normal body
 notify-send -u critical critical body
