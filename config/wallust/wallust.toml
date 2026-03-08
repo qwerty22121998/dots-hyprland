@@ -48,6 +48,7 @@ threshold = 11
 [templates]
 waybar = { template = 'waybar.css', target = '~/.config/waybar/wallust.css' }
 hyprland = { template = 'hyprland.conf', target = '~/.config/hypr/configs/default/wallust.conf' }
+mako = { template = 'mako.conf', target = '~/.config/mako/color.conf' }
 # NOTE: prefer '' over "" for paths, avoids escaping.
 # template: A RELATIVE path that points to `~/.config/wallust/template` (depends on platform)
 # target: ABSOLUTE path in which to place a file with generated templated values.

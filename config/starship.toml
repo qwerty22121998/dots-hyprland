@@ -63,7 +63,7 @@ style = "yellow"
 disabled = false
 symbol = "󱕴"
 format = '[$symbol]($style)'
-style = 'blink red'
+style = 'red'
 
 [cmd_duration]
 min_time = 500
@@ -216,10 +216,10 @@ format = '[$symbol$status( $signal_name)]($style) '
 [custom.docker-compose]
 description = "Shows the docker symbol if the current directory has docker-compose files"
 detect_files = [
-    "docker-compose.yml",
-    "docker-compose.yaml",
-    "compose.yml",
-    "compose.yaml",
+  "docker-compose.yml",
+  "docker-compose.yaml",
+  "compose.yml",
+  "compose.yaml",
 ]
 command = "docker compose version --short"
 symbol = "󰡨"

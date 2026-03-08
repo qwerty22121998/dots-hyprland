@@ -66,4 +66,3 @@ case "$1" in
   vol_down "$2"
   ;;
 esac
-

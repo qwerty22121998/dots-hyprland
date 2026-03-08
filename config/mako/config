@@ -1,13 +1,10 @@
 max-history=10
 sort=-time
 font=JetBrainsMono Nerd Font 14
-background-color=#05000A50
-text-color=#AEE1F8
 width=400
 height=100
 padding=5,10
 border-size=0
-progress-color=#31213F
 max-icon-size=32
 icons=1
 icon-location=left
@@ -17,11 +14,11 @@ text-alignment=center
 default-timeout=5000
 anchor=top-center
 
+include=~/.config/mako/color.conf
+
 [urgency=normal]
-border-color=#00b344
 border-size=2
 
 [urgency=critical]
-border-color=#ff0000
 border-size=2
 default-timeout=0

@@ -2,7 +2,7 @@
 
 SCRIPT_DIR="$HOME/.config/hypr/scripts"
 
-process=(waybar rofi swaync)
+process=(waybar rofi)
 
 for p in "${process[@]}"; do
   if pidof "${p}" >/dev/null; then
@@ -19,6 +19,9 @@ swaync-client -R -rs
 
 sleep 0.5
 "$SCRIPT_DIR"/wallpaper.sh
+
+sleep 0.5
+makoctl reload
 
 notify-send -u low " Hyprland" "Configuration reloaded"
 exit 0
