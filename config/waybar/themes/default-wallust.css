@@ -6,6 +6,7 @@
 @define-color warning rgb(255, 102, 0);
 @define-color critical rgb(255, 72, 0);
 @define-color critical-fg rgb(0, 0, 0);
+
 * {
     font-family: "JetBrains Mono Nerd Font";
     font-size: 100%;
@@ -59,6 +60,7 @@ label:hover {
 #workspaces button.active label {
     color: @active-fg;
 }
+
 /* MODULES */
 #blacklight,
 #backlight-slider,
@@ -138,6 +140,7 @@ label:hover {
     text-shadow: 0 0 5px @critical;
     color: @critical;
 }
+
 #user {
     text-shadow: 0 0 3px;
 }

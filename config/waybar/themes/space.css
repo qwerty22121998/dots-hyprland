@@ -1,7 +1,7 @@
 @define-color background rgba(0, 45, 75, 0.65);
 @define-color foreground rgb(165, 179, 255);
 @define-color active @foreground;
-@define-color active-fg rgb(0,0,0);
+@define-color active-fg rgb(0, 0, 0);
 @define-color normal @foreground;
 @define-color warning rgb(255, 196, 0);
 @define-color critical rgb(255, 102, 0);
@@ -52,8 +52,7 @@ label:hover {
 }
 
 #workspaces button.focused label,
-#workspaces button.active label {
-}
+#workspaces button.active label {}
 
 /* MODULES */
 #blacklight,
@@ -94,8 +93,7 @@ label:hover {
 
 .modules-left,
 .modules-center,
-.modules-right {
-}
+.modules-right {}
 
 /* Block */
 @define-color cpu-fg rgba(255, 186, 37, 0.7);
@@ -104,7 +102,13 @@ label:hover {
 @define-color memory-fg rgba(0, 132, 255, 0.5);
 @define-color disk-fg rgba(124, 124, 124, 0.5);
 
-#ilde_inhibitor, #user, #disk, #cpu, #temperature, #custom-nvidia, #memory {
+#ilde_inhibitor,
+#user,
+#disk,
+#cpu,
+#temperature,
+#custom-nvidia,
+#memory {
     margin: 0px 2px;
 }
 
@@ -117,7 +121,7 @@ label:hover {
     border-radius: 10px;
 }
 
-#power-profiles-daemon.performance{
+#power-profiles-daemon.performance {
     color: @critical;
 }
 
@@ -125,7 +129,7 @@ label:hover {
     color: @warning;
 }
 
-#power-profiles-daemon.power-saver{
+#power-profiles-daemon.power-saver {
     color: rgb(109, 255, 153);
 }
 
