@@ -23,5 +23,6 @@ sleep 0.5
 sleep 0.5
 makoctl reload
 
+hyprctl reload
 notify-send -u low " Hyprland" "Configuration reloaded"
 exit 0

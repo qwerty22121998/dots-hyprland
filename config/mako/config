@@ -8,11 +8,12 @@ border-size=0
 max-icon-size=32
 icons=1
 icon-location=left
+outer-margin=0,0,10,0
 #format=<b>%s</b>\n%b Default when grouped: (%g) <b>%s</b>\n%b
 format=%s\n%b
 text-alignment=center
 default-timeout=5000
-anchor=top-center
+anchor=bottom-center
 
 include=~/.config/mako/color.conf
 
