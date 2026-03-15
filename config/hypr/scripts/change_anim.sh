@@ -16,4 +16,3 @@ if [[ -n $anim_file ]]; then
 fi
 
 echo "$anim_file"
-

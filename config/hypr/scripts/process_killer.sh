@@ -1,7 +1,4 @@
-
 #!/bin/bash
-
-
 
 SCRIPT_DIR="$HOME/.config/hypr/scripts"
 ROFI_CONFIG="$SCRIPT_DIR/rofi_choose.rasi"
