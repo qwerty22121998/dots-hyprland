@@ -1,45 +1,52 @@
 {
-	"custom/nvidia": {
-		"exec": "nvidia-smi --query-gpu=utilization.gpu,temperature.gpu --format=csv,nounits,noheader | sed 's/\\([0-9]\\+\\), \\([0-9]\\+\\)/\\1% 󰚗 \\2°C/g'",
-		"format": "{}",
-		"tooltip-format": "GPU Usage: {}",
-		"interval": 5,
-		"on-click-right": "kitty -e btop"
-	},
-	"custom/hyprland-keybinds": {
-		"format": "󰋗 ",
-		"on-click": "$HOME/.config/hypr/scripts/keybind_parser.sh",
-		"tooltip": true,
-		"tooltip-format": "Hyprland Keybinds"
-	},
-	"custom/sep#space": {
-		"format": " ",
-		"interval": "once",
-		"tooltip": false
-	},
-	"custom/sep#dot": {
-		"format": "",
-		"interval": "once",
-		"tooltip": false
-	},
-	"custom/sep#line": {
-		"format": "|",
-		"interval": "once",
-		"tooltip": false
-	},
-	"custom/sep#fslash": {
-		"format": "",
-		"interval": "once",
-		"tooltip": false
-	},
-	"custom/sep#bslash": {
-		"format": "",
-		"interval": "once",
-		"tooltip": false
-	},
-	"custom/sep#dotline": {
-		"format": "",
-		"interval": "once",
-		"tooltip": false
-	}
+    "custom/nvidia": {
+        "exec": "nvidia-smi --query-gpu=utilization.gpu,temperature.gpu --format=csv,nounits,noheader | sed 's/\\([0-9]\\+\\), \\([0-9]\\+\\)/\\1% 󰚗 \\2°C/g'",
+        "format": "{}",
+        "tooltip-format": "GPU Usage: {}",
+        "interval": 5,
+        "on-click-right": "kitty -e btop"
+    },
+    "custom/amd-gpu": {
+        "format": "{} {icon}", /* "{text} {icon}" for nightly users */
+        "exec": "$HOME/.cargo/bin/gpu-usage-waybar",
+        "return-type": "json",
+        "format-icons": "󰾲",
+        "on-click": "kitty -e nvtop",
+    },
+    "custom/hyprland-keybinds": {
+        "format": "󰋗 ",
+        "on-click": "$HOME/.config/hypr/scripts/keybind_parser.sh",
+        "tooltip": true,
+        "tooltip-format": "Hyprland Keybinds"
+    },
+    "custom/sep#space": {
+        "format": " ",
+        "interval": "once",
+        "tooltip": false
+    },
+    "custom/sep#dot": {
+        "format": "",
+        "interval": "once",
+        "tooltip": false
+    },
+    "custom/sep#line": {
+        "format": "|",
+        "interval": "once",
+        "tooltip": false
+    },
+    "custom/sep#fslash": {
+        "format": "",
+        "interval": "once",
+        "tooltip": false
+    },
+    "custom/sep#bslash": {
+        "format": "",
+        "interval": "once",
+        "tooltip": false
+    },
+    "custom/sep#dotline": {
+        "format": "",
+        "interval": "once",
+        "tooltip": false
+    }
 }

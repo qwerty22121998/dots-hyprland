@@ -56,6 +56,7 @@ label:hover {
 #temperature,
 #custom-swaync,
 #custom-nvidia,
+#custom-amd-gpu,
 #custom-hyprland-keybinds,
 #custom-sep,
 #workspaces,
@@ -121,6 +122,7 @@ label:hover {
 #cpu,
 #temperature,
 #custom-nvidia,
+#custom-amd-gpu,
 #memory {
     margin: 0px 2px;
 }
@@ -182,6 +184,11 @@ label:hover {
 #custom-nvidia {
     color: @nvidia-fg;
 }
+
+#custom-amd-gpu {
+    color: @nvidia-fg;
+}
+
 
 #memory {
     color: @memory-fg;

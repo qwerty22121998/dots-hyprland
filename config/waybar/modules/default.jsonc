@@ -311,7 +311,7 @@
         "icon": true,
     },
     "wireplumber": {
-        "format": "{icon} {volume} %",
+        "format": "{icon} {volume}%",
         "format-muted": " Mute",
         "on-click": "$HOME/.config/hypr/scripts/volume.sh toggle",
         "on-click-right": "hyprpwcenter",

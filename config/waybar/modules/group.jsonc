@@ -4,7 +4,8 @@
         "modules": [
             "cpu",
             "temperature",
-            "custom/nvidia",
+            // "custom/nvidia",
+            "custom/amd-gpu",
             "memory",
             "disk"
         ]
