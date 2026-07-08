@@ -27,12 +27,14 @@
     "modules-left": [
         "user",
         "group/system",
-        "custom/claude"
+        "custom/claude",
+        "power-profiles-daemon"
     ],
     "modules-center": [
         "idle_inhibitor",
         "hyprland/workspaces",
         "cava",
+        "wireplumber",
     ],
     "modules-right": [
         "tray",

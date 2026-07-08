@@ -60,6 +60,7 @@ label:hover {
 #custom-hyprland-keybinds,
 #custom-sep,
 #workspaces,
+#custom-claude,
 #cava {
     color: @foreground;
     padding: 5px 8px;
@@ -87,6 +88,10 @@ label:hover {
 #workspaces button:hover {
     text-shadow: 0 0 2px;
     background: transparent;
+}
+
+#custom-claude {
+    color: #C15F3C
 }
 
 #workspaces button:hover label {
