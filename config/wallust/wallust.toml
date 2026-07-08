@@ -10,8 +10,8 @@
 # Global section - values below can be overwritten by command line flags
 
 # How the image is parse, in order to get the colors:
-# full - resized - wal - thumb -  fastresize - kmeans
-backend = "kmeans"
+# full - resized - wal - thumb - fastresize   (kmeans removed in wallust v4)
+backend = "resized"
 
 # What color space to use to produce and select the most prominent colors:
 # lab - labmixed - lch - lchmixed - salience
@@ -25,7 +25,7 @@ color_space = "labmixed"
 # softlight - softlight16 - softlightcomp - softlightcomp16
 # saliencedark - saliencedarkbalanced - saliencedarkdistributed - saliencedarklow (each has the 16 variations)
 # salienceligh - saliencelightbalanced - saliencelightdistributed - saliencelightlow (each has the 16 variations)
-palette = "dark16"
+palette = "salience"
 
 # Ensures a "readable contrast" (OPTIONAL, disabled by default)
 # Should only be enabled when you notice an unreadable contrast frequently happening
@@ -47,7 +47,7 @@ threshold = 11
 
 [templates]
 waybar = { template = 'waybar.css', target = '~/.config/waybar/wallust.css' }
-hyprland = { template = 'hyprland.conf', target = '~/.config/hypr/configs/default/wallust.conf' }
+hyprland = { template = 'hyprland.lua', target = '~/.config/hypr/colors.lua' }
 mako = { template = 'mako.conf', target = '~/.config/mako/color.conf' }
 # NOTE: prefer '' over "" for paths, avoids escaping.
 # template: A RELATIVE path that points to `~/.config/wallust/template` (depends on platform)
