@@ -2,10 +2,10 @@
 
 SCRIPT_DIR="$HOME/.config/hypr/scripts"
 
-process=(waybar rofi)
+process=(waybar rofi trcc)
 
 for p in "${process[@]}"; do
-  if pidof "${p}" >/dev/null; then
+  if pidof -x "${p}" >/dev/null; then
     pkill "${p}"
   fi
 done
@@ -21,6 +21,11 @@ sleep 0.5
 "$SCRIPT_DIR"/wallpaper.sh
 
 sleep 0.5
+
+"$SCRIPT_DIR"/trcc.sh
+
+sleep 0.5
+
 makoctl reload
 
 hyprctl reload
