@@ -35,6 +35,7 @@ $shell\
 $character"""
 
 add_newline = true
+follow_symlinks = false
 
 [shell]
 disabled = true
