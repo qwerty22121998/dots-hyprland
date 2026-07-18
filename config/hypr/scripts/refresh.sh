@@ -22,8 +22,6 @@ sleep 0.5
 
 sleep 0.5
 
-"$SCRIPT_DIR"/trcc.sh
-
 sleep 0.5
 
 makoctl reload
