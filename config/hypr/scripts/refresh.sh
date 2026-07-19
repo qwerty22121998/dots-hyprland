@@ -2,7 +2,7 @@
 
 SCRIPT_DIR="$HOME/.config/hypr/scripts"
 
-process=(waybar rofi trcc)
+process=(waybar rofi)
 
 for p in "${process[@]}"; do
   if pidof -x "${p}" >/dev/null; then
