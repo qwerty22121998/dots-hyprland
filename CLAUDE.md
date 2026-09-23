@@ -7,10 +7,13 @@ Personal Hyprland (Wayland) dotfiles. No build/test/lint — everything here is 
 ## Install
 
 ```bash
-./install.sh   # symlinks every config/<name> → ~/.config/<name> (rm -rf's existing first)
+./install.sh             # symlinks every config/<name> → ~/.config/<name>
+./install.sh --dry-run   # print what it would do, change nothing
 ```
 
-Configs are **symlinked, not copied** — editing a file in this repo takes effect live in `~/.config`. No re-install needed after the first run. `install.sh` blindly `rm -rf`s any existing `~/.config/<name>` before linking, so anything not tracked here is destroyed on install.
+Configs are **symlinked, not copied** — editing a file in this repo takes effect live in `~/.config`. No re-install needed after the first run.
+
+`install.sh` is idempotent and non-destructive: a `~/.config/<name>` that already resolves to the repo copy is left alone (`ok`), anything else is moved aside to `~/.config/<name>.bak` before the symlink goes in (`backup`). Only one `.bak` is kept per config — a second install that has to back the same name up again overwrites the previous one, so recover from a `.bak` before re-running.
 
 ## Hyprland config layout
 
