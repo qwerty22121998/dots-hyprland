@@ -53,6 +53,8 @@
     "format": "❋{}",
     "exec": "$HOME/.config/hypr/scripts/claude-usage.sh",
     "return-type": "json",
-    "interval": 1200
+    "interval": 300,
+    "signal": 7,
+    "on-click": "$HOME/.config/hypr/scripts/claude-usage.sh --toggle"
   }
 }
