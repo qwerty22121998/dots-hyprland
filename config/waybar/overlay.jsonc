@@ -1,0 +1,8 @@
+// hold-to-peek mode: floats over windows, no reserved space, hidden until SUPER held.
+// First definition wins in waybar includes, so these override config.jsonc.
+{
+    "layer": "overlay",
+    "exclusive": false,
+    "start_hidden": true,
+    "include": ["$HOME/.config/waybar/config.jsonc"],
+}
