@@ -35,6 +35,7 @@
         "cava",
     ],
     "modules-right": [
+        "power-profiles-daemon",
         "tray",
         "clock",
     ],

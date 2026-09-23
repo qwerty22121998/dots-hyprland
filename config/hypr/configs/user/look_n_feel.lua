@@ -21,4 +21,10 @@ hl.config({
 
         layout = "dwindle",
     },
+
+    render = {
+        -- advertises wp_fifo_manager_v1; without it Dota 2's SDL3 probes for
+        -- fifo-v1, doesn't find it, and forces itself onto XWayland
+        new_render_scheduling = true,
+    },
 })

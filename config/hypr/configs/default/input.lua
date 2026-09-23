@@ -25,7 +25,7 @@ hl.config({
     },
 
     misc = {
-        vrr = 3,
+        vrr = 3, -- fullscreen + video/game content type only (1 = always on, 2 = any fullscreen)
         middle_click_paste = false,
         allow_session_lock_restore = true,
         enable_anr_dialog = true,

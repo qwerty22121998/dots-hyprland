@@ -1,3 +1,7 @@
 **/_current_wallpaper
 
 .qmlls.ini
+
+# nwg-displays scratch; the Lua config reads monitors.lua / workspaces.lua, not these
+config/hypr/monitors.conf
+config/hypr/workspaces.conf

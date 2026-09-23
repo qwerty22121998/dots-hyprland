@@ -42,6 +42,3 @@ hl.window_rule({ match = { title = "^(HyprEmoji)$" }, move = "(cursor_x-(window_
 
 -- kicad (disabled in the original config)
 -- hl.window_rule({ match = { class = "^KiCad$", float = true }, tag = "+work", content = "kicad", center = true })
-
-hl.window_rule({ match = { class = "steam_app_1774580" }, no_vrr = 1 })
-hl.window_rule({ match = { class = "steam_app_1044720" }, no_vrr = 1 })

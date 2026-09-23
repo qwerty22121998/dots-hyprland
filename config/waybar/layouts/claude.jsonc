@@ -27,8 +27,7 @@
     "modules-left": [
         "user",
         "group/system",
-        "custom/claude",
-        "power-profiles-daemon"
+        "custom/claude"
     ],
     "modules-center": [
         "idle_inhibitor",
@@ -37,6 +36,7 @@
         "wireplumber",
     ],
     "modules-right": [
+        "power-profiles-daemon",
         "tray",
         "clock",
     ],
