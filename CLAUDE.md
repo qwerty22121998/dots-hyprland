@@ -20,8 +20,7 @@ Configs are **symlinked, not copied** — editing a file in this repo takes effe
 **Config is Lua** (Hyprland 0.55+ `hl` API). `config/hypr/hyprland.lua` is the entry point — Hyprland auto-picks `hyprland.lua` over `hyprland.conf` at **startup** (not on reload). It `require`s, in order:
 1. `configs/default/*.lua` — base config
 2. `monitors.lua`, `workspaces.lua`
-3. `configs/user/*.lua` — **overrides**, required last so they win
-4. `configs/user/hypremoji.lua` — inlines the external `~/.config/hypremoji/hypremoji.conf` (Lua can't `source` a `.conf`)
+3. `configs/user/*.lua` — **overrides**, required last so they win (HyprEmoji's bind and window rules live in `keybinds.lua` / `window_rules.lua`; the upstream `~/.config/hypremoji/` config is not loaded)
 
 Put machine/personal tweaks in `configs/user/`, not `configs/default/`. Both dirs have parallel modules (`env`, `input`, `keybinds`, `look_n_feel`, `window_rules`, `permissions`, `autostart`). `colors.lua` (wallust-generated) is `require`d by `configs/user/look_n_feel.lua` for border colors.
 
@@ -69,7 +68,3 @@ The `change_*.sh` scripts all follow the same shape: rofi picker → swap a file
 - `claude-usage.sh` — waybar JSON for the `custom/claude` module: usage percentages from the OAuth usage API plus health from `status.claude.com`. Reads the token from `~/.claude/.credentials.json` (never writes it), caches 5 min, and `--toggle` cycles short/long text via `SIGRTMIN+7`.
   - `class` is an array: `[<usage state>, st-<status indicator>]`. Colour comes from usage (`ok`/`warning`/`critical`), animation from the status indicator (`st-minor`/`st-major`/`st-critical`/`st-maintenance` have `@keyframes` rules in the theme; `st-none` and `st-unknown` deliberately have none, so an unreachable status page stays calm and uncoloured).
   - Any non-200 emits a still red `⚠` with `class: ["err"]` instead of stale numbers — distinct messages for 401 (expired token), 429, unreachable, and a non-JSON body. An expired `expiresAt` short-circuits before the request.
-
-## quickshell (experimental QML bar)
-
-`config/quickshell/` is an alternative bar written in QML — untracked/experimental, separate from waybar. Two variants: `basic_bar/` (entry `shell.qml`) and `bars/`. Not wired into the Hyprland autostart.

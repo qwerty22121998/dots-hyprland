@@ -12,8 +12,6 @@ hl.window_rule({ match = { class = "^(Brave-browser(-beta|-dev|-unstable)?)$" },
 hl.window_rule({ match = { class = "^([Tt]horium-browser|[Cc]achy-browser)$" }, tag = "+browser" })
 hl.window_rule({ match = { class = "^(zen-alpha|zen)$" }, tag = "+browser" })
 
--- notif tags
-hl.window_rule({ match = { class = "^(swaync-control-center|swaync-notification-window|swaync-client|class)$" }, tag = "+notif" })
 
 -- terminal tags
 hl.window_rule({ match = { class = "^(Alacritty|kitty|kitty-dropterm)$" }, tag = "+terminal" })
@@ -62,8 +60,6 @@ hl.window_rule({ match = { tag = "multimedia" }, opacity = "1.0" })
 
 -- FLOAT
 hl.window_rule({ match = { tag = "wallpaper" }, float = true, center = true })
-hl.window_rule({ match = { tag = "settings" }, float = true, center = true })
-hl.window_rule({ match = { tag = "viewer" }, float = true, center = true })
 hl.window_rule({ match = { class = "([Zz]oom|onedriver|onedriver-launcher)" }, float = true })
 hl.window_rule({ match = { class = "(org.gnome.Calculator|qalculate-gtk)" }, float = true })
 hl.window_rule({ match = { class = "^(mpv|com.github.rafostar.Clapper)$" }, float = true })
@@ -89,8 +85,6 @@ hl.window_rule({ match = { tag = "im" }, opacity = "0.94 0.86" })
 hl.window_rule({ match = { tag = "multimedia" }, opacity = "0.94 0.86" })
 hl.window_rule({ match = { tag = "file-manager" }, opacity = "0.9 0.8" })
 hl.window_rule({ match = { tag = "terminal" }, opacity = "0.9 0.7" })
-hl.window_rule({ match = { tag = "settings" }, opacity = "0.8 0.7" })
-hl.window_rule({ match = { tag = "viewer" }, opacity = "0.82 0.75" })
 hl.window_rule({ match = { tag = "wallpaper" }, opacity = "0.9 0.7" })
 hl.window_rule({ match = { class = "^(gedit|org.gnome.TextEditor|mousepad)$" }, opacity = "0.8 0.7" })
 hl.window_rule({ match = { class = "^(deluge)$" }, opacity = "0.9 0.8" })
@@ -99,12 +93,10 @@ hl.window_rule({ match = { title = "^(Picture-in-Picture)$" }, opacity = "0.95 0
 
 -- SIZE
 hl.window_rule({ match = { tag = "wallpaper" }, size = "(monitor_w*0.7) (monitor_h*0.7)" })
-hl.window_rule({ match = { tag = "settings" }, size = "(monitor_w*0.7) (monitor_h*0.7)" })
 hl.window_rule({ match = { class = "^([Ff]erdium)$" }, size = "(monitor_w*0.6) (monitor_h*0.7)" })
 
 -- BLUR & FULLSCREEN
 hl.window_rule({ match = { tag = "games" }, no_blur = true, fullscreen = 0 })
-hl.window_rule({ match = { tag = "games" }, fullscreen = 0 })
 
 -- Don't take focus for IntelliJ hover popups
 hl.window_rule({ match = { class = "^(jetbrains-*)" }, no_initial_focus = true })
@@ -113,8 +105,6 @@ hl.window_rule({ match = { title = "^(wind.*)$" }, no_initial_focus = true })
 -- LAYER RULES
 hl.layer_rule({ match = { namespace = "rofi" }, blur = true })
 hl.layer_rule({ match = { namespace = "notifications" }, blur = false })
-hl.layer_rule({ match = { namespace = "quickshell:overview" }, blur = true })
-hl.layer_rule({ match = { namespace = "quickshell:overview" }, ignore_alpha = 0.5 })
 
 hl.window_rule({
     name = "Picture-in-Picture",

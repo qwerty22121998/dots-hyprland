@@ -3,7 +3,7 @@
 --- ENVIRONMENT VARIABLES ---
 -----------------------------
 
-hl.env("XCURSOR_THEME", "Capitaine Cursors - White")
+hl.env("XCURSOR_THEME", "capitaine-cursors-light")
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
 

@@ -25,5 +25,3 @@ require("configs.user.keybinds")
 require("configs.user.window_rules")
 require("configs.user.animations")
 
--- mirrors ~/.config/hypremoji/hypremoji.conf (external, can't be sourced from Lua)
-require("configs.user.hypremoji")

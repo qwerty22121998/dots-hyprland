@@ -33,7 +33,6 @@
         "idle_inhibitor",
         "hyprland/workspaces",
         "cava",
-        "wireplumber",
     ],
     "modules-right": [
         "power-profiles-daemon",

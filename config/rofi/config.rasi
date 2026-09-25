@@ -24,4 +24,4 @@ configuration {
 
 
 
-@theme "/home/vuhk/.config/rofi/themes/default.rasi"
+@theme "~/.config/rofi/themes/default.rasi"

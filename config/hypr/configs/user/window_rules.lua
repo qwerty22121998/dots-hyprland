@@ -16,7 +16,7 @@ hl.window_rule({
 })
 
 hl.window_rule({ match = { class = "^(dota2)$" }, tag = "+games", content = "game" })
-hl.window_rule({ match = { class = "^steam_app_.+" }, tag = "+games", content = "game" })
+hl.window_rule({ match = { tag = "games" }, immediate = true })
 
 -- POE
 hl.window_rule({
@@ -34,7 +34,6 @@ hl.window_rule({
     match = { class = "^(exiled-exchange-2)$" },
     no_blur = true,
 })
-hl.bind("CTRL + d", hl.dsp.pass({ window = "class:^(exiled-exchange-2)$" }))
 
 -- Window rules for HyprEmoji
 hl.window_rule({ match = { title = "^(HyprEmoji)$" }, float = true })
