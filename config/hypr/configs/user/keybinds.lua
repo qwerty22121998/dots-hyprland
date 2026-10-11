@@ -10,6 +10,8 @@ hl.bind(mainMod .. " + SHIFT + E", hl.dsp.exec_cmd("hypremoji"), { description =
 -- screenshot
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd(scriptsDir .. "/screenshot.sh"), { description = "screenshot" })
 hl.bind(mainMod .. " + SHIFT + CTRL + S", hl.dsp.exec_cmd(scriptsDir .. "/screenshot.sh save"), { description = "screenshot save" })
+hl.bind("Print", hl.dsp.exec_cmd(scriptsDir .. "/screenshot.sh"), { description = "screenshot" })
+hl.bind("SHIFT + Print", hl.dsp.exec_cmd(scriptsDir .. "/screenshot.sh save"), { description = "screenshot save" })
 
 -- waybar: SUPER+T switches docked <-> overlay peek (bar hidden, shows over windows while SUPER held)
 hl.bind(mainMod .. " + T", hl.dsp.exec_cmd(scriptsDir .. "/waybar_mode.sh toggle"), { description = "toggle waybar overlay mode" })

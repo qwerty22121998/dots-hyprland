@@ -2,16 +2,9 @@
 
 SCRIPT_DIR="$HOME/.config/hypr/scripts"
 
-process=(waybar rofi)
+pkill -x rofi
 
-for p in "${process[@]}"; do
-  if pidof -x "${p}" >/dev/null; then
-    pkill -x "${p}"
-  fi
-done
-
-sleep 0.5
-# waybar_mode.sh owns the launch so a refresh keeps docked/overlay mode
+# waybar_mode.sh owns the kill and launch so a refresh keeps docked/overlay mode
 "$SCRIPT_DIR"/waybar_mode.sh restart
 
 sleep 0.5

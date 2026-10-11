@@ -6,7 +6,11 @@ CONFIG_DIR="$HOME/.config"
 DOT_CONFIG_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/config" && pwd)"
 
 DRY_RUN=0
-if [ "${1:-}" = "--dry-run" ]; then DRY_RUN=1; fi
+case "${1:-}" in
+    "") ;;
+    --dry-run) DRY_RUN=1 ;;
+    *) echo "usage: $0 [--dry-run]" >&2; exit 1 ;;
+esac
 
 run() {
     if [ "$DRY_RUN" = 1 ]; then

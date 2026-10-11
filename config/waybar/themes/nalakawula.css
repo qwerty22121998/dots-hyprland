@@ -1,3 +1,5 @@
+@import "./claude.css";
+
 /* Pastel TTY Colors */
 @define-color background #212121;
 @define-color background-light #3a3a3a;

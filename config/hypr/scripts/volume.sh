@@ -28,11 +28,20 @@ sound_toggle() {
   fi
 }
 
+notify_mic() {
+  if is_mic_mute; then
+    notify-send -u low -h string:x-canonical-private-synchronous:volume "Microphone" "Muted"
+  else
+    local -r volume=$(pamixer --default-source --get-volume)
+    notify-send -u low -h string:x-canonical-private-synchronous:volume -h "int:value:$volume" "Microphone" "$volume%"
+  fi
+}
+
 mic_toggle() {
   if is_mic_mute; then
-    pamixer --default-source -u && notify
+    pamixer --default-source -u && notify_mic
   else
-    pamixer --default-source -m && notify
+    pamixer --default-source -m && notify_mic
   fi
 }
 
@@ -58,6 +67,12 @@ case "$1" in
   ;;
 "mic_toggle")
   mic_toggle
+  ;;
+"mic_up")
+  pamixer --default-source -i "$2" && notify_mic
+  ;;
+"mic_down")
+  pamixer --default-source -d "$2" && notify_mic
   ;;
 "up")
   vol_up "$2"

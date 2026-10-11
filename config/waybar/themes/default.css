@@ -1,3 +1,5 @@
+@import "./claude.css";
+
 @define-color background rgba(0, 0, 0, 0.5);
 @define-color foreground #ffa000;
 @define-color active @foreground;

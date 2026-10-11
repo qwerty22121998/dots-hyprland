@@ -55,7 +55,3 @@ button:hover {
 #reboot {
     background-image: image(url("./icons/restart.svg"));
 }
-
-#hibernate {
-    background-image: image(url("./icons/hibernate.svg"));
-}

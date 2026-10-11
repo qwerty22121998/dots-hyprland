@@ -12,6 +12,7 @@ hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("pkill rofi || true && rofi -show dru
 hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(terminal), { description = "terminal" })
 hl.bind(mainMod .. " + CTRL + S", hl.dsp.exec_cmd("rofi -show window"), { description = "window switcher" })
 hl.bind(mainMod .. " + V", hl.dsp.exec_cmd(scriptsDir .. "/clipboard.sh"), { description = "clipboard history" })
+hl.bind(mainMod .. " + SHIFT + V", hl.dsp.exec_cmd("cliphist wipe && notify-send -u low 'Clipboard' 'History wiped'"), { description = "wipe clipboard history" })
 hl.bind(mainMod .. " + H", hl.dsp.exec_cmd(scriptsDir .. "/keybind_parser.sh"), { description = "show keybinds" })
 hl.bind(mainMod .. " + SHIFT + A", hl.dsp.exec_cmd(scriptsDir .. "/change_anim.sh"), { description = "select animation" })
 hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd(scriptsDir .. "/change_wallpaper.sh"), { description = "select wallpaper" })
@@ -24,7 +25,7 @@ hl.bind(mainMod .. " + Q", hl.dsp.window.close(), { description = "close active 
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager), { description = "file manager" })
 hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("hyprlock"), { description = "lock screen" })
 hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("swaync-client -t -sw"), { description = "notification center" })
-hl.bind("CTRL + ALT + P", hl.dsp.exec_cmd("pkill wlogout || true && wlogout -b 6"), { description = "power menu" })
+hl.bind("CTRL + ALT + P", hl.dsp.exec_cmd("pkill wlogout || true && wlogout -b 5"), { description = "power menu" })
 hl.bind("CTRL + ALT + R", hl.dsp.exec_cmd(scriptsDir .. "/refresh.sh"), { description = "reload config" })
 
 -- layout
@@ -66,6 +67,10 @@ end
 hl.bind(mainMod .. " + SHIFT + bracketleft", hl.dsp.window.move({ workspace = "-1" }), { description = "move to previous workspace" })
 hl.bind(mainMod .. " + SHIFT + bracketright", hl.dsp.window.move({ workspace = "+1" }), { description = "move to next workspace" })
 
+-- scratchpad: a hidden workspace that overlays the current one
+hl.bind(mainMod .. " + grave", hl.dsp.workspace.toggle_special("magic"), { description = "toggle scratchpad" })
+hl.bind(mainMod .. " + SHIFT + grave", hl.dsp.window.move({ workspace = "special:magic" }), { description = "move to scratchpad" })
+
 -- workspaces related
 hl.bind(mainMod .. " + tab", hl.dsp.focus({ workspace = "m+1" }), { description = "next workspace" })
 hl.bind(mainMod .. " + SHIFT + tab", hl.dsp.focus({ workspace = "m-1" }), { description = "previous workspace" })
@@ -85,3 +90,6 @@ hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd(scriptsDir .. "/volume.sh up 5")
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd(scriptsDir .. "/volume.sh down 5"), { description = "volume down", locked = true, repeating = true })
 hl.bind("XF86AudioMute", hl.dsp.exec_cmd(scriptsDir .. "/volume.sh toggle"), { description = "toggle mute", locked = true })
 hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd(scriptsDir .. "/volume.sh mic_toggle"), { description = "toggle mic mute", locked = true })
+hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { description = "play / pause", locked = true })
+hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { description = "next track", locked = true })
+hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { description = "previous track", locked = true })

@@ -22,7 +22,7 @@ Configs are **symlinked, not copied** — editing a file in this repo takes effe
 2. `monitors.lua`, `workspaces.lua`
 3. `configs/user/*.lua` — **overrides**, required last so they win (HyprEmoji's bind and window rules live in `keybinds.lua` / `window_rules.lua`; the upstream `~/.config/hypremoji/` config is not loaded)
 
-Put machine/personal tweaks in `configs/user/`, not `configs/default/`. Both dirs have parallel modules (`env`, `input`, `keybinds`, `look_n_feel`, `window_rules`, `permissions`, `autostart`). `colors.lua` (wallust-generated) is `require`d by `configs/user/look_n_feel.lua` for border colors.
+Put machine/personal tweaks in `configs/user/`, not `configs/default/`. Both dirs have parallel modules (`env`, `input`, `keybinds`, `look_n_feel`, `window_rules`, `autostart`). `colors.lua` (wallust-generated) is `require`d by `configs/user/look_n_feel.lua` for border colors.
 
 The old `.conf` config was fully migrated to `.lua` and **removed** (it's in git history). The only `.conf` left under `config/hypr/` are `hypridle.conf` and `hyprlock.conf` — separate daemons, NOT part of the Hyprland config. `.luarc.json` wires up the `hl` global + LSP stubs (`/usr/share/hypr/stubs/hl.meta.lua`).
 
@@ -30,6 +30,7 @@ Gotchas in Lua mode:
 - **`hyprctl reload` cannot hot-swap `.conf`↔`.lua`** — a running instance re-reads the *path it launched with*. Switching formats needs a full restart / re-login. (If the launch-path config is missing on reload, Hyprland generates a stub default — don't rename the active config out from under a running session.)
 - `$terminal`/`$scriptsDir`-style conf vars don't exist in Lua — use Lua locals + `..`. `$HOME` still works (shell-expanded in `exec`).
 - Validate before switching: `Hyprland --config <path>/hyprland.lua --verify-config` (evaluates dispatchers/rules, not just syntax).
+- **`hyprctl dispatch` takes Lua too**: `hyprctl dispatch 'hl.dsp.dpms({action = "off"})'`. The old `hyprctl dispatch dpms off` form errors out, and `--verify-config` cannot see it because these calls live outside the Hyprland config (`hypridle.conf`, `wlogout/layout`, `swaync/config.json`).
 - `monitors.lua`/`workspaces.lua` must be hand-edited — nwg-displays only writes the `.conf` versions, which are gitignored scratch the Lua config never reads.
 - `colors.lua` is wallust-generated (template `wallust/templates/hyprland.lua`) — don't hand-edit it.
 - The animation swapper is Lua too: `change_anim.sh` copies `animations/*.lua` presets over `configs/user/animations.lua`.
@@ -64,7 +65,7 @@ Styling a module means editing `waybar/themes/<active>.css`, **not** `style.css`
 The `change_*.sh` scripts all follow the same shape: rofi picker → swap a file → notify/refresh. Keybinds live in `configs/{default,user}/keybinds.lua`; SUPER+H shows the cheatsheet via `keybind_parser.sh`, which reads live `hyprctl binds` (not a file).
 
 - `refresh.sh` — restart waybar, reload swaync, re-run wallpaper + reload Hyprland (run after config edits that aren't picked up live). It delegates the waybar launch to `waybar_mode.sh restart` so a refresh preserves docked/overlay mode.
-- `waybar_mode.sh {toggle,show,hide,restart}` — switches waybar between docked (reserves space) and overlay peek (hidden, floats over windows while SUPER is held). Mode lives in `/tmp/waybar-overlay-mode`, peek state in `/tmp/waybar-peek-shown`, since waybar has no IPC to report its own mode. Bound to SUPER+T plus press/release binds on bare `SUPER_L` in `configs/user/keybinds.lua`.
+- `waybar_mode.sh {toggle,show,hide,restart}` — switches waybar between docked (reserves space) and overlay peek (hidden, floats over windows while SUPER is held). Mode lives in `/tmp/waybar-overlay-mode`, peek state in `/tmp/waybar-peek-shown`, since waybar has no IPC to report its own mode; `configs/default/autostart.lua` deletes both at login, so a session always starts docked. Bound to SUPER+T plus press/release binds on bare `SUPER_L` in `configs/user/keybinds.lua`.
 - `claude-usage.sh` — waybar JSON for the `custom/claude` module: usage percentages from the OAuth usage API plus health from `status.claude.com`. Reads the token from `~/.claude/.credentials.json` (never writes it), caches 5 min, and `--toggle` cycles short/long text via `SIGRTMIN+7`.
-  - `class` is an array: `[<usage state>, st-<status indicator>]`. Colour comes from usage (`ok`/`warning`/`critical`), animation from the status indicator (`st-minor`/`st-major`/`st-critical`/`st-maintenance` have `@keyframes` rules in the theme; `st-none` and `st-unknown` deliberately have none, so an unreachable status page stays calm and uncoloured).
-  - Any non-200 emits a still red `⚠` with `class: ["err"]` instead of stale numbers — distinct messages for 401 (expired token), 429, unreachable, and a non-JSON body. An expired `expiresAt` short-circuits before the request.
+  - `class` is an array: `[<usage state>, st-<status indicator>]`. Colour comes from usage, the worse of session and weekly (`ok`/`warning`/`critical`), animation from the status indicator (`st-minor`/`st-major`/`st-critical`/`st-maintenance` have animation rules in `waybar/claude.css`, which every theme `@import`s; `st-none` and `st-unknown` deliberately have none, so an unreachable status page stays calm and uncoloured).
+  - Any failure emits a still red `⚠` with `class: ["err"]` instead of stale numbers — distinct messages for a missing token, 401 (expired token), 429, unreachable, and a non-JSON body. An expired `expiresAt` short-circuits before the request.

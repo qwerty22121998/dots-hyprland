@@ -50,10 +50,6 @@
             "command": "sh -c 'swaync-client -cp; systemctl suspend'"
           },
           {
-            "label": "Hibernate",
-            "command": "sh -c 'swaync-client -cp; systemctl hibernate'"
-          },
-          {
             "label": "Reboot",
             "command": "systemctl reboot"
           },

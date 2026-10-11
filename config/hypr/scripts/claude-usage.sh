@@ -45,6 +45,7 @@ fail() {
     401)   msg="token expired - run any claude command to refresh it" ;;
     429)   msg="rate limited by the usage API" ;;
     000)   msg="cannot reach api.anthropic.com" ;;
+    creds) msg="no token - set CLAUDE_OAUTH_TOKEN or log in with claude ($creds)" ;;
     parse) msg="unexpected response body from the usage API" ;;
     *)     msg="usage API returned HTTP $why" ;;
   esac
@@ -63,15 +64,9 @@ if [[ -f "$cache" ]]; then
 fi
 
 if [[ -z "$tok" ]]; then
-  if [[ ! -r "$creds" ]]; then
-    echo "error: no token; set CLAUDE_OAUTH_TOKEN or provide $creds" >&2
-    exit 1
-  fi
-  tok="$(jq -r '.claudeAiOauth.accessToken // empty' "$creds")"
-  [[ -n "$tok" ]] || {
-    echo "error: accessToken missing in $creds" >&2
-    exit 1
-  }
+  [[ -r "$creds" ]] || fail creds
+  tok="$(jq -r '.claudeAiOauth.accessToken // empty' "$creds" 2>/dev/null || true)"
+  [[ -n "$tok" ]] || fail creds
 fi
 
 # ponytail: skip a request we already know answers 401
@@ -90,8 +85,9 @@ trap 'rm -f "$tmp" "$body"' EXIT
 # ponytail: status is best-effort, empty object when the endpoint is down
 status="$(curl -fsSL --max-time 8 https://status.claude.com/api/v2/summary.json 2>/dev/null || echo '{}')"
 
-code="$(curl -sS -o "$body" -w '%{http_code}' --max-time 8 \
-  -H "Authorization: Bearer $tok" \
+# header on stdin (-H @-): a token in argv is readable by any local process via ps
+code="$(printf 'Authorization: Bearer %s\n' "$tok" | curl -sS -o "$body" -w '%{http_code}' --max-time 8 \
+  -H @- \
   -H 'anthropic-beta: oauth-2025-04-20' \
   https://api.anthropic.com/api/oauth/usage 2>/dev/null || true)"
 # curl itself prints 000 when it never got a response; empty means it printed nothing
@@ -124,8 +120,10 @@ jq -c --argjson now "$now" --argjson st "$status" '
     (($st.components // []) | map(select(.status != "operational"))) as $down |
     (if $st.status.indicator == null then "unknown" else $st.status.indicator end) as $ind |
     ($iicon[$ind] // "?") as $badge |
-    (if   $w >= 80 or $ind == "critical" or $ind == "major" then "critical"
-     elif $w >= 50 or ($ind | IN("minor","maintenance"))    then "warning"
+    # a full 5-hour session blocks you just like a full week, so colour by the worse one
+    ([$s, $w] | max) as $u |
+    (if   $u >= 80 or $ind == "critical" or $ind == "major" then "critical"
+     elif $u >= 50 or ($ind | IN("minor","maintenance"))    then "warning"
      else                                                        "ok"       end) as $state |
     {
       texts: {

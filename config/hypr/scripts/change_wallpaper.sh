@@ -4,7 +4,7 @@ SCRIPT_DIR="$HOME/.config/hypr/scripts"
 ROFI_CONFIG=$HOME/.config/hypr/scripts/rofi_wallpaper.rasi
 WALLPAPER_DIR="$HOME/Pictures/Wallpapers"
 
-wallpaper_file=$(ls "$WALLPAPER_DIR"/*.{jpg,png} 2>/dev/null |
+wallpaper_file=$(ls "$WALLPAPER_DIR"/*.{jpg,jpeg,png,webp} 2>/dev/null |
   sed 's/.*\///' | while read img; do echo -en "$img\0icon\x1fthumbnail://$WALLPAPER_DIR/$img\n"; done |
   rofi -dmenu -i -config "$ROFI_CONFIG" -mesg "󰸉 Select wallpaper" -p "Wallpaper")
 if [[ -n $wallpaper_file ]]; then

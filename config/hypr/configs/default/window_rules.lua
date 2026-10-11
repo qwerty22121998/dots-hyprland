@@ -61,9 +61,8 @@ hl.window_rule({ match = { tag = "multimedia" }, opacity = "1.0" })
 -- FLOAT
 hl.window_rule({ match = { tag = "wallpaper" }, float = true, center = true })
 hl.window_rule({ match = { class = "([Zz]oom|onedriver|onedriver-launcher)" }, float = true })
-hl.window_rule({ match = { class = "(org.gnome.Calculator|qalculate-gtk)" }, float = true })
+hl.window_rule({ match = { class = "(org.gnome.Calculator|[Qq]alculate-gtk)" }, float = true })
 hl.window_rule({ match = { class = "^(mpv|com.github.rafostar.Clapper)$" }, float = true })
-hl.window_rule({ match = { class = "^([Qq]alculate-gtk)$" }, float = true })
 hl.window_rule({ match = { class = "^([Ff]erdium)$" }, float = true })
 
 -- popups and dialogue
@@ -89,7 +88,6 @@ hl.window_rule({ match = { tag = "wallpaper" }, opacity = "0.9 0.7" })
 hl.window_rule({ match = { class = "^(gedit|org.gnome.TextEditor|mousepad)$" }, opacity = "0.8 0.7" })
 hl.window_rule({ match = { class = "^(deluge)$" }, opacity = "0.9 0.8" })
 hl.window_rule({ match = { class = "^(seahorse)$" }, opacity = "0.9 0.8" })
-hl.window_rule({ match = { title = "^(Picture-in-Picture)$" }, opacity = "0.95 0.75" })
 
 -- SIZE
 hl.window_rule({ match = { tag = "wallpaper" }, size = "(monitor_w*0.7) (monitor_h*0.7)" })

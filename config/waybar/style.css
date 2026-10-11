@@ -1,4 +1,5 @@
 @import "./wallust.css";
+@import "./claude.css";
 
 @define-color active @foreground;
 @define-color normal @foreground;
@@ -88,44 +89,6 @@ label:hover {
 #workspaces button:hover {
     text-shadow: 0 0 2px;
     background: transparent;
-}
-
-#custom-claude {
-    color: #C15F3C
-}
-
-#custom-claude.warning {
-    color: #E0A030;
-}
-
-#custom-claude.critical {
-    color: #E04545;
-}
-
-/* fetcher broken: never animated, so it cannot be mistaken for an outage */
-#custom-claude.err {
-    color: #E04545;
-}
-
-@keyframes claude-pulse {
-    to { color: #E04545; }
-}
-
-/* status.claude.com indicator drives the speed; usage % drives the colour */
-#custom-claude.st-minor {
-    animation: claude-pulse 2s ease-in-out infinite alternate;
-}
-
-#custom-claude.st-major {
-    animation: claude-pulse 1s ease-in-out infinite alternate;
-}
-
-#custom-claude.st-critical {
-    animation: claude-pulse .4s steps(1) infinite alternate;
-}
-
-#custom-claude.st-maintenance {
-    animation: claude-pulse 3s ease-in-out infinite alternate;
 }
 
 #workspaces button:hover label {

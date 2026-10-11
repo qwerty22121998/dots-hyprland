@@ -3,6 +3,9 @@
 ROFI_CONFIG=$HOME/.config/hypr/scripts/rofi_choose.rasi
 
 hyprctl binds -j |
-  jq -r 'map({modkey:.modmask|tostring,key:.key,description:.description,dispatch:.dispatcher,arg:.arg}) | map(.modkey |= {"0":"","1":"SHIFT","4":"CTRL","5":"SHIFT+CTRL","64":"SUPER","65":"SUPER+SHIFT","68":"SUPER+CTRL","72":"SUPER+ALT","73":"SUPER+ALT+SHIFT", "8":"ALT", "12":"ALT+CTRL"} [.] )| sort_by(.modkey)' |
-  jq -r '.[] | .modkey + "+" + .key + " : " + .description' |
+  jq -r '
+    # modmask is a bitfield; decode it so any combination gets named
+    def mods: . as $m | [[64, "SUPER"], [4, "CTRL"], [8, "ALT"], [1, "SHIFT"]]
+      | map(select(($m / .[0] | floor) % 2 == 1) | .[1]);
+    sort_by(.modmask)[] | ((.modmask | mods) + [.key] | join("+")) + " : " + (.description // "")' |
   rofi -dmenu -i -config "$ROFI_CONFIG" -mesg "󰌓 Keybinds" -p "Search keybinds"
