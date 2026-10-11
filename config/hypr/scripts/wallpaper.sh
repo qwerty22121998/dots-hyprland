@@ -12,3 +12,5 @@ ln -sf "$current_wallpaper" "$PICTURE_DIR/_current_wallpaper" 2>/dev/null
 ln -sf "$current_wallpaper" "$HOME/.config/rofi/_current_wallpaper" 2>/dev/null
 
 wallust run "$current_wallpaper" 2>/dev/null
+# swaync does not watch its CSS, so push the new colours
+swaync-client --reload-css --skip-wait >/dev/null

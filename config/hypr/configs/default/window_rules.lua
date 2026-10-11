@@ -103,8 +103,10 @@ hl.window_rule({ match = { class = "^(jetbrains-*)" }, no_initial_focus = true }
 hl.window_rule({ match = { title = "^(wind.*)$" }, no_initial_focus = true })
 
 -- LAYER RULES
-hl.layer_rule({ match = { namespace = "rofi" }, blur = true })
+hl.layer_rule({ match = { namespace = "rofi" }, blur = true, dim_around = true })
 hl.layer_rule({ match = { namespace = "notifications" }, blur = false })
+-- dim the whole monitor (waybar included) while the notification center is open
+hl.layer_rule({ match = { namespace = "swaync-control-center" }, dim_around = true })
 
 hl.window_rule({
     name = "Picture-in-Picture",

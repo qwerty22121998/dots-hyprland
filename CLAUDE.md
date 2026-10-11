@@ -43,7 +43,7 @@ Changing the wallpaper regenerates the color scheme:
 `wallust run` renders `config/wallust/templates/*` into these **generated targets** (per `wallust/wallust.toml [templates]`) — edits here get overwritten:
 - `hypr/colors.lua` (a Lua table `{ background, foreground, color0..15 }`, `require`d by `look_n_feel.lua`)
 - `waybar/wallust.css`
-- `mako/color.conf`
+- `swaync/colors.css` (CSS variables, `@import`ed by the hand-written `swaync/style.css`)
 
 To change *how* colors map, edit the templates in `wallust/templates/`, not the targets. `awww` (not `swww`) is the wallpaper daemon in this setup. wallust is **v4-alpha** — its config differs from v3 (e.g. `kmeans` is now a `palette`, not a `backend`); run `wallust migrate` cautions apply.
 
@@ -63,7 +63,7 @@ Styling a module means editing `waybar/themes/<active>.css`, **not** `style.css`
 
 The `change_*.sh` scripts all follow the same shape: rofi picker → swap a file → notify/refresh. Keybinds live in `configs/{default,user}/keybinds.lua`; SUPER+H shows the cheatsheet via `keybind_parser.sh`, which reads live `hyprctl binds` (not a file).
 
-- `refresh.sh` — restart waybar + mako, re-run wallpaper + reload Hyprland (run after config edits that aren't picked up live). It delegates the waybar launch to `waybar_mode.sh restart` so a refresh preserves docked/overlay mode.
+- `refresh.sh` — restart waybar, reload swaync, re-run wallpaper + reload Hyprland (run after config edits that aren't picked up live). It delegates the waybar launch to `waybar_mode.sh restart` so a refresh preserves docked/overlay mode.
 - `waybar_mode.sh {toggle,show,hide,restart}` — switches waybar between docked (reserves space) and overlay peek (hidden, floats over windows while SUPER is held). Mode lives in `/tmp/waybar-overlay-mode`, peek state in `/tmp/waybar-peek-shown`, since waybar has no IPC to report its own mode. Bound to SUPER+T plus press/release binds on bare `SUPER_L` in `configs/user/keybinds.lua`.
 - `claude-usage.sh` — waybar JSON for the `custom/claude` module: usage percentages from the OAuth usage API plus health from `status.claude.com`. Reads the token from `~/.claude/.credentials.json` (never writes it), caches 5 min, and `--toggle` cycles short/long text via `SIGRTMIN+7`.
   - `class` is an array: `[<usage state>, st-<status indicator>]`. Colour comes from usage (`ok`/`warning`/`critical`), animation from the status indicator (`st-minor`/`st-major`/`st-critical`/`st-maintenance` have `@keyframes` rules in the theme; `st-none` and `st-unknown` deliberately have none, so an unreachable status page stays calm and uncoloured).

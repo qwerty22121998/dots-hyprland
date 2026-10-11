@@ -20,7 +20,7 @@ window {
     location: center;
     anchor: north;
     transparency: "real";
-    width: 30%;
+    width: 800px;
     background-color: @background;
 }
 

@@ -1,0 +1,103 @@
+{
+  "$schema": "/etc/xdg/swaync/configSchema.json",
+  "positionX": "center",
+  "positionY": "bottom",
+  "control-center-positionX": "center",
+  "control-center-positionY": "top",
+  "control-center-margin-top": 20,
+  "control-center-margin-bottom": 20,
+  "control-center-width": 800,
+  "timeout": 5,
+  "timeout-low": 5,
+  "timeout-critical": 0,
+  "notification-window-width": 400,
+  "scripts": {
+    "sound-normal": {
+      "exec": "[ $(swaync-client -D) = true ] || $HOME/.config/hypr/scripts/sound.sh message-new-instant",
+      "urgency": "Normal"
+    },
+    "sound-critical": {
+      "exec": "[ $(swaync-client -D) = true ] || $HOME/.config/hypr/scripts/sound.sh dialog-warning",
+      "urgency": "Critical"
+    }
+  },
+  "widgets": [
+    "inhibitors",
+    "title",
+    "dnd",
+    "buttons-grid",
+    "volume",
+    "mpris",
+    "notifications",
+    "menubar"
+  ],
+  "widget-config": {
+    "menubar": {
+      "menu#power": {
+        "label": "󰐥 Power",
+        "position": "right",
+        "actions": [
+          {
+            "label": "Lock",
+            "command": "sh -c 'swaync-client -cp; loginctl lock-session'"
+          },
+          {
+            "label": "Logout",
+            "command": "hyprctl dispatch 'hl.dsp.exit()'"
+          },
+          {
+            "label": "Suspend",
+            "command": "sh -c 'swaync-client -cp; systemctl suspend'"
+          },
+          {
+            "label": "Hibernate",
+            "command": "sh -c 'swaync-client -cp; systemctl hibernate'"
+          },
+          {
+            "label": "Reboot",
+            "command": "systemctl reboot"
+          },
+          {
+            "label": "Shutdown",
+            "command": "systemctl poweroff"
+          }
+        ]
+      }
+    },
+    "buttons-grid": {
+      "buttons-per-row": 4,
+      "actions": [
+        {
+          "label": "󰖩",
+          "type": "toggle",
+          "command": "sh -c '[ $SWAYNC_TOGGLE_STATE = true ] && nmcli radio wifi on || nmcli radio wifi off'",
+          "update-command": "sh -c '[ $(nmcli radio wifi) = enabled ] && echo true || echo false'"
+        },
+        {
+          "label": "󰂯",
+          "type": "toggle",
+          "command": "sh -c '[ $SWAYNC_TOGGLE_STATE = true ] && bluetoothctl power on || bluetoothctl power off'",
+          "update-command": "sh -c 'bluetoothctl show | grep -q Powered:.yes && echo true || echo false'"
+        },
+        {
+          "label": "󰍬",
+          "type": "toggle",
+          "command": "sh -c '[ $SWAYNC_TOGGLE_STATE = true ] && pamixer --default-source -u || pamixer --default-source -m'",
+          "update-command": "sh -c '[ $(pamixer --default-source --get-mute) = false ] && echo true || echo false'"
+        },
+        {
+          "label": "󰹑",
+          "command": "sh -c 'swaync-client -cp; sleep 0.3; $HOME/.config/hypr/scripts/screenshot.sh'"
+        }
+      ]
+    },
+    "volume": {
+      "label": "󰕾",
+      "show-per-app": true,
+      "show-per-app-label": true
+    },
+    "mpris": {
+      "autohide": true
+    }
+  }
+}

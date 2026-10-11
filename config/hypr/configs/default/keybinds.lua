@@ -11,6 +11,7 @@ local scriptsDir = "$HOME/.config/hypr/scripts"
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("pkill rofi || true && rofi -show drun -modi drun,filebrowser,run,window"), { description = "rofi" })
 hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(terminal), { description = "terminal" })
 hl.bind(mainMod .. " + CTRL + S", hl.dsp.exec_cmd("rofi -show window"), { description = "window switcher" })
+hl.bind(mainMod .. " + V", hl.dsp.exec_cmd(scriptsDir .. "/clipboard.sh"), { description = "clipboard history" })
 hl.bind(mainMod .. " + H", hl.dsp.exec_cmd(scriptsDir .. "/keybind_parser.sh"), { description = "show keybinds" })
 hl.bind(mainMod .. " + SHIFT + A", hl.dsp.exec_cmd(scriptsDir .. "/change_anim.sh"), { description = "select animation" })
 hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd(scriptsDir .. "/change_wallpaper.sh"), { description = "select wallpaper" })
@@ -22,6 +23,7 @@ hl.bind(mainMod .. " + SHIFT + K", hl.dsp.exec_cmd(scriptsDir .. "/process_kille
 hl.bind(mainMod .. " + Q", hl.dsp.window.close(), { description = "close active window" })
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager), { description = "file manager" })
 hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("hyprlock"), { description = "lock screen" })
+hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("swaync-client -t -sw"), { description = "notification center" })
 hl.bind("CTRL + ALT + P", hl.dsp.exec_cmd("pkill wlogout || true && wlogout -b 6"), { description = "power menu" })
 hl.bind("CTRL + ALT + R", hl.dsp.exec_cmd(scriptsDir .. "/refresh.sh"), { description = "reload config" })
 

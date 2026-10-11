@@ -56,5 +56,18 @@
     "interval": 300,
     "signal": 7,
     "on-click": "$HOME/.config/hypr/scripts/claude-usage.sh --toggle"
+  },
+  "custom/swaync": {
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "󱅫",
+      "dnd-none": "󰂛",
+      "dnd-notification": "󰂛",
+      "default": "󰂚"
+    },
+    "exec": "swaync-client -swb",
+    "return-type": "json",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw"
   }
 }

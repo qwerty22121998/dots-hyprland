@@ -1,0 +1,45 @@
+/* Loaded on top of /etc/xdg/swaync/style.css, so only overrides live here. */
+@import "colors.css"; /* wallust-generated */
+
+* {
+  font-family: "JetBrainsMono Nerd Font";
+}
+
+:root {
+  --font-size-body: 14pt;
+  --font-size-summary: 14pt;
+  --notification-icon-size: 32px;
+  --border-radius: 0;
+}
+
+.notification-row .notification-background .notification.low {
+  border: none;
+}
+
+.notification-row .notification-background .notification.normal {
+  border: 2px solid #00b344;
+}
+
+.notification-row .notification-background .notification.critical {
+  border: 2px solid #ff0000;
+}
+
+.notification-row .notification-background .notification progressbar progress {
+  background: var(--bg-selected);
+}
+
+.widget-buttons-grid flowboxchild > button.toggle:checked {
+  background: var(--bg-selected);
+}
+
+.widget-buttons-grid flowboxchild > button {
+  font-size: 1.4rem;
+}
+
+.control-center scale highlight {
+  background: var(--bg-selected);
+}
+
+.control-center *:focus-visible {
+  outline-color: var(--bg-selected);
+}

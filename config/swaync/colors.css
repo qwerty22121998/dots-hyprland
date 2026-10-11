@@ -1,0 +1,12 @@
+:root {
+  --noti-bg: 3,0,0;
+  --noti-bg-alpha: 1;
+  --noti-bg-darker: #030000;
+  --noti-bg-hover: color-mix(in srgb, #030000 85%, #EE90B7);
+  --noti-bg-focus: color-mix(in srgb, #030000 75%, #EE90B7);
+  --noti-close-bg: color-mix(in srgb, #030000 70%, #EE90B7);
+  --noti-close-bg-hover: color-mix(in srgb, #030000 55%, #EE90B7);
+  --cc-bg: rgba(3,0,0, 0.9);
+  --text-color: #EE90B7;
+  --bg-selected: #86221D;
+}

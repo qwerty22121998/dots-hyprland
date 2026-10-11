@@ -17,7 +17,7 @@ sleep 0.5
 sleep 0.5
 "$SCRIPT_DIR"/wallpaper.sh
 
-makoctl reload
+swaync-client --reload-config --reload-css
 
 hyprctl reload
 notify-send -u low " Hyprland" "Configuration reloaded"

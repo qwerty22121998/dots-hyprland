@@ -38,5 +38,6 @@
         "power-profiles-daemon",
         "tray",
         "clock",
+        "custom/swaync",
     ],
 }

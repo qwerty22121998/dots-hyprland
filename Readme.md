@@ -3,13 +3,14 @@
 # Prerequisites
 - hyprland: Wayland compositor
 - fastfetch: System information display
-- mako: Notification daemon
+- swaync: Notification daemon + notification center
 - rofi: App launcher, dmenu
 - waybar: Status bar
 - awww: Wallpaper daemon
 - cava: Audio visualizer
 - wlogout: Logout menu
 - grim, slurp: Screenshot tools
+- cliphist, wl-clipboard: Clipboard history
 - pamixer: Volume control
 - kitty: Terminal emulator
 - zsh: Shell
